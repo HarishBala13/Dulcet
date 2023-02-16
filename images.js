@@ -48,7 +48,7 @@ app.post("/Value",(req,res)=>{
         res.render("log");
     }
     else{
-        res.render("summa",{msg:"summa"});
+        res.render("summa",{msg:"Krinc"});
     }
 
 })
