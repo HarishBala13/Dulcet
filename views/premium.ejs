@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/premium.css">
+    <link rel="icon" href="/images/logo.png">
+    <title>Premium</title>
+</head>
+<body>
+    <header class="header">
+        <a href="/"><img src="/images/logo.png" class="logo" height="65px" width="80px"></a>
+    </header>
+    <div class="grid-container">
+        <div class="div1">
+            <span>Introducing Premium Feliq</span>
+            <p>₹ for 1 day.<br>₹ for 1 week</p>
+            <a href="#" class="active">GET FELIQ</a>
+            <a href="#bottom">SEE OTHER PLANS</a>
+        </div>
+        <div class="div2">
+            <span>Get Premium free for 1 month</span>
+            <p>Just ₹150/month..Grab it soon</p>
+            <a href="#">GET STARTED</a> 
+        </div>
+        <div class="div3">
+            <small>Connect with music and create a culture</small>
+            <%for(i=0; i<=singerslength-1; i++){%>
+            <div class="div31">
+                <img src="<%=singers[i].SINGER_IMAGE%>" width="260px" height="250px">
+                <p id="para">Artists : <%=singers[i].SINGER_NAME%><br>Enjoy it freely!</p>
+            </div>
+            <%}%> 
+        </div>
+        <div class="div4">
+        <a href="#" id="bottom"></a>
+        </div>
+      </div>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PremiumPage.css">
+    <title>Premium</title>
+</head>
+<body>
+    <label>Coupon Code : </label>
+    <input type="text" placeholder="Enter your Coupon Code" id="name" onkeyup="placekey()">
+</body>
+<script>
+    function placekey(){
+        var key = document.getElementById('name');
+        key.value = key.value.toUpperCase();
+    }
+</script>
+</html> -->

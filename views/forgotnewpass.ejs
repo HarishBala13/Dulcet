@@ -1,0 +1,83 @@
+<DOCTYPE html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/forgotnewpass.css">
+    <link rel="icon" href="/public/images/logo.png">
+    </head>
+    <body>
+      <div class="system">
+          <form action="/dbforgotpassvalue" class="form" method="post" onsubmit="return submitvalidate()">
+            <%if(message){%>
+              <%=message%>
+            <%}%>
+          <h2 id="h2">Reset Password</h2>
+          <input type="password" placeholder="Enter a new password" id="recoverysetpassword" name="recoverysetpassword" onkeyup="spasserror()">
+          <small id="error1"></small>
+        
+          <input type="password" placeholder="Enter the above password" id="recoveryconfirmpassword" name="recoveryconfirmpassword" onkeyup="cpasserror()">
+          <small id="error2"></small>
+          <button type="submit">Reset my Password</button>
+          </form>
+        </div>
+    </body>
+    <script>
+    const spass=document.getElementById("recoverysetpassword");
+    const cpass=document.getElementById("recoveryconfirmpassword");
+    const error1=document.getElementById("error1");
+    const error2=document.getElementById("error2");
+    
+    var count=0;
+    function spasserror(){
+      const spass1=spass.value;
+        if(spass1==''){
+        error1.style.color="red";
+        error1.innerHTML="This Field should'nt be empty";
+        error1.style.visibility="visible"; 
+        spass.style.border="2px solid red";
+      }
+        else if(spass1.length<=10){
+        error1.style.color="red";
+        error1.innerHTML="Password should be minimum 10 characters";
+        error1.style.visibility="visible"; 
+        spass.style.border="2px solid red";
+        }
+        else{
+        error1.style.visibility="visible"; 
+        error1.innerHTML="";
+        spass.style.border="2px solid green";
+        return count++;
+        } 
+    }
+    
+    function cpasserror(){
+      const spass1=spass.value;
+      const cpass1=cpass.value;
+        if(cpass1==''){
+        error2.style.color="red";
+        error2.innerHTML="This Field should'nt be empty";
+        error2.style.visibility="visible";
+        cpass.style.border="2px solid red";
+      }
+        else if(cpass1!=spass1){
+        error2.style.color="red";
+        error2.innerHTML="Password doesn't match";
+        error2.style.visibility="visible";
+        cpass.style.border="2px solid red";
+        }
+        else{
+        error2.style.visibility="visible";
+        error2.innerHTML="";
+        cpass.style.border="2px solid green";
+        return count++;
+        } 
+    }
+    function submitvalidate(){
+      if(count>2) {return true;}
+      else {
+        return false;}
+    }
+    </script>
+    </html>

@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+}
+.system{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: rgb(255, 255, 255);
+}
+.form #h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    text-align: center;
+    padding: 20px 40px;
+}
+.form{
+    width: 25rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+  border-radius: 20px 35px 20px 35px;
+}
+input{
+    width: 60%;
+    box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+    margin-left: 80px;
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 30px;
+    border:none;
+    outline: none;
+}
+input:focus{
+    outline: none;
+}
+/* .form-control i{
+    position: absolute;
+    right: 15px;
+    top: 37px;
+    visibility: hidden;
+}
+.form-control i.fa-circle-check{
+    color: #0cce5d;
+    visibility: hidden;
+}
+.form-control i.fa-circle-exclamation{
+    color: #c80d0d;
+    visibility: hidden;
+} */
+.form small{
+    color: #c80d0d;
+    visibility: hidden;
+    margin-left: 130px;
+    text-align: center;
+}
+.form span{
+    display: block;
+    padding: 10px;
+    margin-left: 60px;
+    font-size: 20px;
+}
+.form .password{
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+.form .password:hover{
+    color: blueviolet;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.form button{
+  border: none;
+  font-size: large;
+  width: 60%;
+  margin-left: 80px;
+  padding: 10px;
+  margin-bottom: 25px;
+  font-weight: bolder;
+}
+.form button:hover{
+    cursor: pointer;
+    color: white;
+    background: rgba(0,0,0,0.75);
+    /* transform: translateX(20%);
+    transition: ease-in 200ms; */
+}
+
+/* #login{
+    font-size: 1rem;
+    margin-left: 0px;
+    margin-top: -15px;
+    padding: 30px;
+}
+#loginbtn{
+    margin-left: 220px;
+    margin-top: -20px;
+} */
+
+.form p{
+    color:red;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    padding: 15px;
+}
+
+
+@media only screen and (max-width : 500px)
+{
+    .form{
+        width: 100%;
+    }
+    .form-group span{
+        font-size: xx-small;
+    }
+}
+
+/*
+.login{
+    padding: 12px 10px;
+}
+.login a{
+    text-decoration: none;
+    color: white;
+}
+.login a:hover{
+    background: #590fe2;
+    border: 2px solid #2adda8;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 5px;
+}  */
+
+ 
+  /* Change styles for span and cancel button on extra small screens 
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  
+
+.system-1{
+    background-color: azure;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.5);
+}
+*/
+
+/* .form-control span{
+    position: absolute;
+    font-weight: bolder;
+    font-size: 1rem;
+    font-style: oblique;
+    visibility: visible;
+} */
+
+/* .submit a #submit{
+    color: yellowgreen;
+    text-decoration: none;
+} */
+
+

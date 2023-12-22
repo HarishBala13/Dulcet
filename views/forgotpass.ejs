@@ -1,0 +1,61 @@
+<DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/css/forgotpass.css">
+<link rel="icon" href="/public/images/logo.png">
+</head>
+<body>
+  <div class="system">
+      <form action="/dbforgotpass" class="form" method="post" onsubmit="return submitvalidate()">
+      <h2 id="h2">Forgot Password</h2>
+      <%if(message){%>
+        <p><%=message%></p>
+      <%} %>
+      <input type="email" placeholder="Enter your email" id="recoveryemail" name="recoveryemail" onkeyup="emailerror()">
+      <small id="error1"></small>
+    
+      <input type="text" placeholder="Enter your name" id="name" name="name" style="display: none;">
+      <button type="submit">Submit</button>
+      </form>
+    </div>
+</body>
+<script>
+const email=document.getElementById("recoveryemail");
+const name=document.getElementById("name");
+const error1=document.getElementById("error1");
+var count=0;
+function emailerror(){
+    const email1=email.value;
+    const regExp = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if(email1==''){
+      error1.style.color="red";
+      error1.innerHTML="This Field should'nt be empty";
+      error1.style.visibility="visible"; 
+      email.style.border="2px solid red";
+    }
+    else if(!(regExp.test(email1))){
+      error1.style.color="red";
+      email.style.border="2px solid red";
+      error1.style.visibility="visible"; 
+      error1.innerHTML="Invalid! Please provide proper Email";
+  }
+  else{
+    error1.innerHTML="";
+    email.style.border="2px solid green";
+    name.style.display="block";
+    return count++;
+  }
+}
+function submitvalidate(){
+  if(count==1) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+</script>
+</html>

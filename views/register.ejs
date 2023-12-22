@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Sweet Alert Scripts and CSS starts here.. -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+<!-- Sweet Alert Scripts and CSS ends here.. -->
+
+<link rel="stylesheet" href="/css/register.css">
+<link rel="icon" href="/images/logo.png">
+
+</head>
+<body>
+  <div class="system">
+      <form id="form" class="form" action="/dbregister" method="post" onsubmit="return submitvalidate()">
+        <h2 id="h2">Create account</h2>
+        <%if(message){%>
+          <p> <%=message%></p>
+        <%} %>
+        
+          <input type="text" placeholder="Enter your name" id="name" name="name" onkeyup="nameerror()">
+          <small id="error1">Error Message</small>
+        
+          <input type="text" placeholder="Enter your email" id="email" name="email" onkeyup="emailerror()">
+          <small id="error2">Error Message</small>
+      
+          <input type="password" placeholder="Enter your password" id="set_password" name="set_password" onkeyup="spasserror()">
+          <small id="error3">Error Message</small>
+
+          <input type="password" placeholder="Enter the above password" id="confirm_password" name="confirm_password" onkeyup="cpasserror()">
+          <small id="error4">Error Message</small>
+        <button type="submit">Submit</button>
+        <span>Already&nbsp;an&nbsp;User&nbsp;?&nbsp;Click&nbsp;<a class="password" href="/login">Login</a></span>
+      </form>
+    </div>
+<script>
+const name=document.getElementById("name");
+const email=document.getElementById("email");
+const spass=document.getElementById("set_password");
+const cpass=document.getElementById("confirm_password");
+const error1=document.getElementById("error1");
+const error2=document.getElementById("error2");
+const error3=document.getElementById("error3");
+const error4=document.getElementById("error4");
+var count=0;
+function nameerror(){
+  const name1=name.value;
+  if(name1==""){
+    error1.style.visibility="visible";
+    error1.innerHTML="This Field should'nt be empty";
+    name.style.border="2px solid red";
+  }
+  else if(name1.length>=15){
+    name.style.border="2px solid red";
+    error1.style.visibility="visible";
+    error1.innerHTML="Username should not exceed more than 15 characters"; 
+  }
+  else{
+    error1.innerHTML="";
+    name.style.border="2px solid green";
+    return count++;
+  }
+}
+
+function emailerror(){
+    const email1=email.value;
+    const regExp = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if(email1==''){
+      error2.innerHTML="This Field should'nt be empty";
+      error2.style.visibility="visible";
+      email.style.border="2px solid red";
+    }
+    else if(!(regExp.test(email1))){
+      email.style.border="2px solid red";
+      error2.style.visibility="visible";
+      error2.innerHTML="Invalid! Please provide proper Email";
+    }
+  else{
+    error2.style.visibility="hidden";
+    email.style.border="2px solid green";
+    return count++;
+  }
+}
+
+function spasserror(){
+  const spass1=spass.value;
+    if(spass1==''){
+    error3.innerHTML="This Field should'nt be empty";
+    error3.style.visibility="visible";
+    spass.style.border="2px solid red";
+  }
+  else if(spass1.length<=4){
+    error3.innerHTML="Weak Password need to update";
+    error3.style.visibility="visible";
+    spass.style.border="2px solid red";
+    }
+    else if(spass1.length<=7){
+    error3.innerHTML="Medium Password need to update";
+    error3.style.visibility="visible";
+    spass.style.border="2px solid red";
+    }
+    else{
+    error3.style.visibility="hidden";
+    spass.style.border="2px solid green";
+    return count++;
+    } 
+}
+
+function cpasserror(){
+  const spass1=spass.value;
+  const cpass1=cpass.value;
+    if(cpass1==''){
+    error4.innerHTML="This Field should'nt be empty";
+    error4.style.visibility="visible";
+    cpass.style.border="2px solid red";
+  }
+    else if(cpass1!=spass1){
+    error4.innerHTML="Password doesn't match";
+    error4.style.visibility="visible";
+    cpass.style.border="2px solid red";
+    }
+    else{
+        error4.style.visibility="hidden";
+    cpass.style.border="2px solid green";
+    return count++;
+    } 
+}
+
+function submitvalidate(){
+  if(count>=4)  return true;
+  else return false;
+}
+
+</script>
+</body>
+</html>
+
+

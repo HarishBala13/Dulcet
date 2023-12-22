@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dulcet</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="icon" href="/images/logo.png">
+</head>
+<body>
+<header class="header">
+<div class="nav">
+    <!-- <img src="https://drive.google.com/file/d/16LrAcB0Jnw-4fBrM9bX5KVZyLwgwDka7/view?usp=share_link" class="logo"> -->
+    <img src="/images/logo.png" alt="Dulcet Logo" class="logo">
+</div>
+
+<div class="nav-links" id="togglebar">
+    <nav>
+        <%if(message){%>
+            <p><%=message%></p>
+            <a href="/premium">Premium</a> 
+            <a href="#bottom">Contact</a> 
+            <a href="/logout">Logout</a>            
+        <%} else {%>
+        <a href="/loggedin">Songs</a>
+        <a href="/premium">Premium</a> 
+        <a href="#bottom">Contact</a> 
+        <a href="/login">Login</a>
+        <%}%>
+    </nav>
+</div>
+</header>
+<header id="main-header">
+    <h1>Welcome to Dulcet<br><%=message%></h1>
+    <img src="/images/logo.png" alt="Logo">
+    <p class="intro">One Good Thing About Music, When It Hits You, You Feel No Pain.</p>
+</header>
+
+<section id="slider-2">
+    <div class="container wide">
+        <div class="swiper" id="swiper-2">
+            <div class="swiper-wrapper">
+               <%for(i=0;i<=singerslength-1;i++){%>
+                <div class="swiper-slide">
+                    <figure>
+                        <img src="<%=singers[i].SINGER_IMAGE%>" alt="<%=singers[i].SINGER_NAME%>" title="<%=singers[i].SINGER_NAME%>"/>
+                        <figcaption>
+                            <img src="/album/icon-location.svg" alt="Icon location"><a href="/register">View site</a>   
+                        </figcaption>
+                    </figure>
+                </div>  
+               <%}%> 
+            </div>
+
+            <!-- <div class="swiper-custom-nav">
+                <svg width="64" height="64"  id="nav-left" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M32 2.79753e-06C14.3269 4.34256e-06 -4.34256e-06 14.3269 -2.79753e-06 32C-1.2525e-06 49.6731 14.3269 64 32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 1.2525e-06 32 2.79753e-06ZM28.9334 24.3999C28.6667 24.1333 28.4 23.9999 28 23.9999C27.6 23.9999 27.3334 24.1333 27.0667 24.3999L20.4 31.0666L20.4 31.0667C20.2 31.2667 20.075 31.5041 20.025 31.751C19.9417 32.1624 20.0666 32.6 20.4 32.9333L27.0667 39.6C27.6 40.1333 28.4 40.1333 28.9333 39.6C29.4667 39.0667 29.4667 38.2667 28.9333 37.7333L24.5334 33.3334L42.7222 33.3334C43.4889 33.3334 44 32.8 44 32C44 31.2 43.4889 30.6667 42.7222 30.6667L24.5333 30.6667L28.9334 26.2666C29.4667 25.7333 29.4667 24.9333 28.9334 24.3999Z" fill="cyan"/>
+                </svg>
+
+                <svg width="64" height="64"  id="nav-right" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64ZM35.0666 39.6001C35.3333 39.8667 35.6 40.0001 36 40.0001C36.4 40.0001 36.6666 39.8667 36.9333 39.6001L43.6 32.9334L43.6 32.9333C43.8 32.7333 43.925 32.4959 43.975 32.249C44.0583 31.8376 43.9334 31.4 43.6 31.0667L36.9333 24.4C36.4 23.8667 35.6 23.8667 35.0667 24.4C34.5333 24.9333 34.5333 25.7333 35.0667 26.2667L39.4666 30.6666H21.2778C20.5111 30.6666 20 31.2 20 32C20 32.8 20.5111 33.3333 21.2778 33.3333H39.4667L35.0666 37.7334C34.5333 38.2667 34.5333 39.0667 35.0666 39.6001Z" fill="cyan"/>
+                </svg>
+            </div>  -->
+        </div> <!-- end swiper -->
+    </div> <!-- end container -->
+</section>
+    
+<section id="bottom" class="bottom_contents">
+    <div class="contact-header">
+       <a href="#top"><div class="grid1"><img src="/images/logo.png" class="logo"></div></a>
+    <div>
+        <span>COMPANY</span>
+        <ul>
+            <li>About
+            <li>Jobs
+            <li>Records
+        </ul>
+    </div>
+    <div>
+        <span>COMMUNITIES</span>
+        <ul>
+            <li>For&nbsp;Artists
+            <li>Developers
+            <li>Advertising
+            <li>Investors
+            <li>Vendors
+        </ul>
+    </div>
+    <div>
+        <span>USEFUL&nbsp;LINKS</span>
+        <ul>
+            <li>Support
+            <li>Web&nbsp;Player
+            <li>Contact&nbsp;Delcet
+        </ul>
+    </div>
+    <nav>
+        <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
+        <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+        <a href="https://www.linkedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
+        <a href="mailto:delcetonline2023@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i>E-mail</a>
+        <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
+    </nav>
+    </div>
+    
+</section>
+
+<footer class="footer">
+<h3>Copyrights &copy; 2020</h3>
+<p>All Rights Reserved</p>
+<p>Developed and Maintaining by  <a href="#"><b>Mr. B HARISH</b></a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    function toggle(){
+        var tog=document.getElementById("togglebar");
+        if(tog.className === "nav-links"){
+            tog.className+= "media-visibility";
+        }
+        else{
+            tog.className+= "nav-links";
+        }
+    }
+    new Swiper("#swiper-1", {
+    effect: "fade",
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: "#swiper-1 .swiper-pagination",
+        clickable: true,
+    },
+    lazyLoading: true,
+    loop: true
+});
+
+new Swiper("#swiper-2", {
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 24,
+    pagination: {
+        el: ("#swiper-2 .swiper-custom-pagination"),
+        clickable: true,
+        renderBullet: function (index, className) {
+        return `<div class=${className}>
+            <span class="number">${index + 1}</span>
+            <span class="line"></span>
+            </div>`;
+        }
+    },
+    lazyLoading: true,
+    loop: true,
+    keyboard: {
+        enabled: true,
+    },
+    navigation: {
+        nextEl: "#nav-right",
+        prevEl: "#nav-left"
+    },
+    breakpoints: {
+        800: {  slidesPerView: 1.5  },
+        1400: { slidesPerView: 3    }
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/logo.png">
+    <title>ADMIN</title>
+    <style>
+        .flex{
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            background: linear-gradient(to right,rgb(12, 105, 244),rgb(207, 25, 210));
+            box-shadow: 3px 0px 6px;
+            padding: 5rem;
+            /* border: 0.2rem solid black; */
+            width: auto;
+            height: auto;
+        }
+        label{
+            color: #fff;
+        }
+        label,input{
+            font-size: 1.2rem;
+            caret-color: red;
+            width: 100%;
+            display: block;
+            margin-bottom: 6%;
+        }
+        button{
+            display: block;
+            width: 100%;
+            margin-bottom: 6%;
+            font-size: 1.2rem;
+            text-transform: capitalize;
+            border:none;
+            background-color: rgb(3, 209, 3);
+            color: #fff;
+            padding: 5px;
+        }
+        button:hover{
+            background-color: #000; 
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- <table border="5" id="tab">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        <%for(i=0;i<=length-1;i++){%>
+        <tr onclick="users(this)" style="cursor:pointer;">
+            <td><%=i+1%></td>
+            <td><%=userinfo[i].U_NAME%></td>
+            <td><%=userinfo[i].U_EMAIL%></td>
+        </tr>
+        <%}%>
+    </table><br>    
+    <div class="flex">
+        <form action="/adminuserchange" method="post">
+            <label>Name: <input type="text" id="name" value="">
+            <label>Email: <input type="text" id="email" value="">
+            <input type="submit" value="update">
+            <input type="submit" value="delete">
+        </form>
+    </div>
+    <hr><br><br> -->
+    <div class="flex">
+        <form action="/adminsongs" method="post">
+            <label>AUDIO_ID : <input type="text" id="audioid" value="" name="audioid">
+            <label>AUDIO_NAME : <input type="text" id="audioname" value="" name="audioname">
+            <label>AUDIO : <input type="text" id="audio" value="" name="audio">
+            <label>MOVIE_NAME : <input type="text" id="moviename" value="" name="moviename">
+            <label>IMAGE : <input type="text" id="image" value="" name="image">
+            <button type="submit" value="sav" name="Save">Save</button>
+            <button type="submit" value="upd" name="Update">Update</button>
+            <button type="submit" value="del" name="Delete">Delete</button>
+        </form>
+    </div>
+    
+    <table border="5" id="table" cellspacing="5px" cellpadding="5px" style="margin-top: 10%;">
+        <tr>
+            <th>AUDIO_ID</th>
+            <th>AUDIO_NAME</th>
+            <th>AUDIO</th>
+            <th>MOVIE_NAME</th>
+            <th>IMAGE</th>
+        </tr>
+        <%for(i=0;i<=allsongslength-1;i++){%>
+        <tr onclick="songs(this)" style="cursor:pointer;">
+            <td><%=allsongs[i].AUD_ID%></td>
+            <td><%=allsongs[i].AUD_NAME%></td>
+            <td><%=allsongs[i].AUDIO%></td>
+            <td><%=allsongs[i].MOVIE_NAME%></td>
+            <td><%=allsongs[i].IMAGE%></td>
+        </tr>
+        <%}%>
+    </table><br>    
+    <hr><br><br>   
+</body>
+<script>
+//  function users(x){
+//     var xindex=x.rowIndex;
+//     var col=document.getElementById("tab").rows[xindex].cells;
+//     document.getElementById("name").value=col[1].innerHTML;
+//     document.getElementById("email").value=col[2].innerHTML;
+//  }
+
+ function songs(y){
+    var yindex=y.rowIndex;
+    var col=document.getElementById("table").rows[yindex].cells;
+    document.getElementById("audioid").value=col[0].innerHTML;
+    document.getElementById("audioname").value=col[1].innerHTML;
+    document.getElementById("audio").value=col[2].innerHTML;
+    document.getElementById("moviename").value=col[3].innerHTML;
+    document.getElementById("image").value=col[4].innerHTML;
+ }
+</script>
+</html>
